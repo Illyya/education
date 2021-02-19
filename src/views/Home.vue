@@ -156,7 +156,6 @@ export default {
   name: "Home",
   data() {
     return {
-      listOfCities: [],
       selectedSite: "",
       isSelectDisabled: false,
       online: "",
@@ -189,6 +188,11 @@ export default {
         });
     },
   },
+  computed: {
+    listOfCities() {
+      return this.$store.state.listOfCities
+    }
+  },
   updated() {
     if (
       (this.selectedSite || this.online) &&
@@ -203,11 +207,7 @@ export default {
     this.other.length > 0 ? (this.topicOfAppeal = "") : null;
   },
   mounted() {
-    const url = "https://60254fac36244d001797bfe8.mockapi.io/api/v1/city";
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => (this.listOfCities = data));
+    this.$store.dispatch('loadListOfCities')
   },
 };
 </script>

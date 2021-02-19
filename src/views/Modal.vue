@@ -1,7 +1,7 @@
 <template>
-  <div class="modal">
-    <span @click="closedModal" class="modal__span">&#10006;</span>
+  <div class="modal">    
     <div class="modal__img">
+      <span @click="closedModal" class="modal__span">&#10006;</span>
       <img src="@/assets/success_img.png" alt="modal" />
     </div>
   </div>
@@ -19,8 +19,9 @@ export default {
 
 <style lang="scss">
 .modal {
-  position: relative
-  ;
+  display: flex;
+  align-items: center;
+
   &__span {
     position: absolute;
     top: 10px;
@@ -34,6 +35,7 @@ export default {
   }
 
   &__img {
+  position: relative;
   border: 5px solid #2e2e2e;
   }
 }

@@ -171,31 +171,29 @@ export default {
       other: "",
       descriptionOfTheProblem: "",
       isButtonDisabled: true,
-      modal: false,
     };
   },
   watch: {
     topicOfAppeal() {
       this.other = "";
-    },    
+    },
     online() {
       this.isSelectDisabled = !this.isSelectDisabled;
       console.log(this.selectedSite);
     },
-    modal() {
-      this.$router.push('/modal');
-    }
   },
   methods: {
-    serverRequest() {  
-      const url = 'https://60254fac36244d001797bfe8.mockapi.io/api/v1/send-form';    
+    serverRequest() {
+      const url = "https://60254fac36244d001797bfe8.mockapi.io/api/v1/send-form";
       fetch(url, {
-        method: 'POST'
+        method: "POST",
       })
-        .then(response => response.json())
-        .then(data => {
-          data.success == false ? alert('Ошибка отправки заявки') : this.modal = data.success;
-        })
+        .then((response) => response.json())
+        .then((data) => {
+          data.success == true
+            ? this.$router.push("/modal")
+            : alert("Ошибка отправки заявки");
+        });
     },
   },
   updated() {
@@ -209,7 +207,7 @@ export default {
       this.isButtonDisabled = true;
     }
 
-    this.other.length > 0 ? this.topicOfAppeal = '' : null;
+    this.other.length > 0 ? (this.topicOfAppeal = "") : null;
   },
   mounted() {
     const url = "https://60254fac36244d001797bfe8.mockapi.io/api/v1/city";

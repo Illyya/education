@@ -1,11 +1,12 @@
 <template>
-  <div class="app">    
-    <router-view/>
+  <div class="app">
+    <router-view />
   </div>
 </template>
 
 <style lang="scss">
-html,body{
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -15,7 +16,6 @@ body {
   color: rgb(78, 78, 78);
   user-select: none;
 }
-
 
 .app {
   height: 100%;

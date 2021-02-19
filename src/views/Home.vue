@@ -14,7 +14,6 @@
           :disabled="isSelectDisabled"
           name="branch"
           id="branch"
-          required
           :class="{ 'is-disabled': isSelectDisabled }"
           class="form__select"
         >
@@ -54,7 +53,6 @@
             name="topic-of-appeal"
             id="not-happy"
             value="not-happy"
-            required
             class="form__input form__input_not-happy"
           />
           <label for="not-happy" class="form__label form__label_not-happy"
@@ -121,7 +119,6 @@
           name="description-of-the-problem"
           id="description-of-the-problem"
           placeholder="Введите текст"
-          required
           class="form__textarea"
         ></textarea>
       </div>
@@ -139,10 +136,6 @@
             id="upload-file"
             class="form__input form__input_upload-file"
           />
-          <!-- <label
-            for="upload-file"
-            class="form__label form__label_upload-file"
-          ></label> -->
         </div>
       </div>
 
@@ -179,12 +172,12 @@ export default {
     },
     online() {
       this.isSelectDisabled = !this.isSelectDisabled;
-      console.log(this.selectedSite);
     },
   },
   methods: {
     serverRequest() {
       const url = "https://60254fac36244d001797bfe8.mockapi.io/api/v1/send-form";
+
       fetch(url, {
         method: "POST",
       })
@@ -234,6 +227,7 @@ $color-1: #ececec;
 
 .form {
   width: 800px;
+  
   &__title-2 {
   }
 
